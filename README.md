@@ -12,7 +12,7 @@ Over time the script has grown like a mushroom to allow checking
 * streaming audio URLs contained in PLS files found in a given directory and its subdirectories
 * streaming audio URLs contained in PLS files found in the moOde RADIO directory and its subdirectories.
 
-Although it is convention to use the .pls extension to denote a PLS file, this script does not require it. Rather, the Linux _file_ command is used to identify candidate PLS files. Almost no meaningful syntactic or semantic checking of the PLS file is done other than requiring the presence of the File1=\<URL> and Title1=\<Station name> lines. PLS files whose File1= line identify a local media file rather than a streaming audio URL are skipped.
+Although it is convention to use the .pls extension to denote a PLS file, this script does not require it. Rather, the Linux _file_ command is used to identify candidate PLS files. Almost no meaningful syntactic or semantic checking of the PLS file is done other than requiring the presence of the File1=\<URL> and Title1=\<Station name> lines. PLS files whose File1= line references a local media file rather than a streaming audio URL are skipped \[oops - currently only true when checking a single PLS file].
 
 Since this script uses the MPD instance running in the moOde player, it exercises the moOdeUI playback screen, making for an interesting slide show. A scan of the moOde RADIO directory will take over a minute to complete.
 
@@ -24,7 +24,7 @@ Notes:
 * Just because MPD says it can play a URL doesn't mean the source is streaming useful audio.
 * Subdirectories are including in directory checks because I have sorted my moOde radio stations into subdirectories by genre.
 * Python 3.6 or above is required (moOde 6.4.2 is already at 3.7.3)
-* one could imagine extending this script, for example, to start its own MPD process or to use the MPD process on a remote moOde player. Not hard to do but seems totally unnecessary.
+* One could imagine extending this script, for example, to start its own MPD process or to use the MPD process on a remote moOde player. Not hard to do but seems totally unnecessary.
 
 ## Usage
 
