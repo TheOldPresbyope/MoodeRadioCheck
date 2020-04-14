@@ -7,6 +7,10 @@
     -  url in every pls file in moOde RADIO directory or below
 """
 
+# (C) 2020 Kent Reed aka TheOldPresbyope
+# https://github.com/TheOldPresbyope
+# released under the terms of the MIT License
+
 import argparse
 import glob
 import os
