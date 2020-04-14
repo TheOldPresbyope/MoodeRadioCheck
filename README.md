@@ -2,7 +2,7 @@
 
 This repo contains a Python script radiocheck.py which checks that streaming audio URLs and PLS files containing them are playable.
 
-The original purpose of this script was to ease the task of checking the 150+ curated radio station "presets" which are included in the [moOde audio player](http://moodeaudio.org) images. It does this by asking the [Music Player Daemon](https://www.musicpd.org) (MPD) component to play each PLS file and reading the return code. Over time the script has grown like a mushroom to allow checking
+The original purpose of this script was to ease the task of checking the 150+ curated radio station "presets" which are included in the [moOde audio player](http://moodeaudio.org) images. It does this by asking the [Music Player Daemon](https://www.musicpd.org) (MPD) component to play each PLS file for 0.5s and reading the return code. Over time the script has grown like a mushroom to allow checking
 
 * a single streaming audio URL
 * a streaming audio URL contained in a single PLS file
@@ -10,9 +10,9 @@ The original purpose of this script was to ease the task of checking the 150+ cu
 * streaming audio URLs contained in PLS files found in a given directory and its subdirectories
 * streaming audio URLs contained in PLS files found in the moOde RADIO directory and its subdirectories.
 
-Although it is convention to use the .pls extension to denote a PLS file, this script does not require it. Rather, the Linux _file_ command is used to identify candidate PLS files. Almost no meaningful syntactic or semantic checking of the PLS file is done, other than requiring the presence of the File1=\<URL> and Title1=\<Station name> lines. PLS files whose File1= line identify a local media file rather than a streaming audio URL are skipped.
+Although it is convention to use the .pls extension to denote a PLS file, this script does not require it. Rather, the Linux _file_ command is used to identify candidate PLS files. Almost no meaningful syntactic or semantic checking of the PLS file is done other than requiring the presence of the File1=\<URL> and Title1=\<Station name> lines. PLS files whose File1= line identify a local media file rather than a streaming audio URL are skipped.
 
-Since this script uses the MPD instance running in the moOde player, it exercises the moOdeUI playback screen, making for an interesting slide show. Some servers are slow to respond so these is a built-in 0.5s delay (possibly overkill) before reading MPD's return code. A scan of the moOde RADIO directory will take over a minute to complete.
+Since this script uses the MPD instance running in the moOde player, it exercises the moOdeUI playback screen, making for an interesting slide show. A scan of the moOde RADIO directory will take over a minute to complete.
 
 WARNING: This script sets the moOde volume to 0 to try to protect the user's system, but this has no effect if volume control is disabled.
 
