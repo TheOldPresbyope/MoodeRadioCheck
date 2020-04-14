@@ -2,7 +2,9 @@
 
 This repo contains a Python script radiocheck.py which checks that streaming audio URLs and PLS files containing them are playable.
 
-The original purpose of this script was to ease the task of checking the 150+ curated radio station "presets" which are included in the [moOde audio player](http://moodeaudio.org) images. It does this by asking the [Music Player Daemon](https://www.musicpd.org) (MPD) component to play each PLS file for 0.5s and reading the return code. Over time the script has grown like a mushroom to allow checking
+The original purpose of this script was to ease the task of checking the 150+ curated radio station "presets" which are included in each release of the [moOde audio player](http://moodeaudio.org). It does this by asking the [Music Player Daemon](https://www.musicpd.org) (MPD) component to play each PLS file for 0.5s and reading the return code. 
+
+Over time the script has grown like a mushroom to allow checking
 
 * a single streaming audio URL
 * a streaming audio URL contained in a single PLS file
@@ -17,7 +19,7 @@ Since this script uses the MPD instance running in the moOde player, it exercise
 WARNING: This script sets the moOde volume to 0 to try to protect the user's system, but this has no effect if volume control is disabled.
 
 Notes:
-* A streaming audio URL may fail to play temporarily due to issues at the server or in an intervening gateway, router, or, generally, the content delivery network.
+* A streaming audio URL may fail to play temporarily due to issues at the server or in an intervening gateway or, generally, the content delivery network.
 * Geofenced URLs will fail for outsiders.
 * Just because MPD says it can play a URL doesn't mean the source is streaming useful audio.
 * Subdirectories are including in directory checks because I have sorted my moOde radio stations into subdirectories by genre.
