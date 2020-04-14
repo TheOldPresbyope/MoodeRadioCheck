@@ -87,7 +87,7 @@ def try_url(url):
 
 
 def check_dir(dir):
-    """
+    """ find and check PLS files in dir and below
     """
     plscount = 0
     goodplscount = 0
@@ -100,6 +100,8 @@ def check_dir(dir):
             print(
                 f"{plsfile} missing 'File1=' and/or 'Title1=' line; skip to next pls file\n")
             continue
+        # TODO - should check radiourl isn't referencing a local media file
+        #        ala check_file(), but then I have to change the accounting
         result = try_url(radiourl)
         if result[0]:
             badplscount += 1
@@ -136,7 +138,7 @@ def check_file(file):
         if not radiourl or not radioname:
             sys.exit(f"oops - {file} is missing File1= and/or Title1= line")
         if not radiourl.lower().startswith("http://"):
-            sys.exit(f"{file} does not describe an HTTP streaming source")
+            sys.exit(f"{file} does not reference an HTTP streaming source")
         result = try_url(radiourl)
         if result[0]:
             sys.exit(f"mpd: {result[1]}\n")
