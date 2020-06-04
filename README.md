@@ -1,3 +1,5 @@
+OBSOLETE - just use the new `moodeutl -u` feature recently added to moOde by Tim Curtis.
+
 # moOdeRadioCheck
 
 This repo contains a Python script radiocheck.py which checks that streaming audio URLs and PLS files containing them are playable.
